@@ -8,6 +8,7 @@ using Observers;
 using Repositories;
 using Strategy;
 using Builder;
+using Singleton;
 
 namespace Facade
 {
@@ -47,6 +48,8 @@ namespace Facade
 
         public void ConfirmarReserva(string viajero, DateTime fechaInicio)
         {
+            Logger.Instance.Info("Iniciando confirmación de reserva"); //instancio singleton
+
             if (_transporteActual == null)
                 throw new InvalidOperationException("Debe seleccionar un transporte antes de confirmar.");
 

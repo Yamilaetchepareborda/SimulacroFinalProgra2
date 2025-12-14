@@ -14,6 +14,7 @@ namespace Strategy
 
         public decimal CalcularCosto(IEnumerable<Destino> destinos, decimal subtotal)
         {
+            Logger.Instance.Info("Calculando costo de transporte, en Avion");
             var cfg = ConfigManager.Instance;
             // recargo sobre el subtotal
             return subtotal * (1 + cfg.RecargoAvion);

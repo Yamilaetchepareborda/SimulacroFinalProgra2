@@ -14,6 +14,8 @@ namespace Strategy
 
         public decimal CalcularCosto(IEnumerable<Destino> destinos, decimal subtotal)
         {
+            Logger.Instance.Info("Calculando costo de transporte en Micro");
+
             var cfg = ConfigManager.Instance;
             return subtotal * (1 + cfg.RecargoMicro);
         }

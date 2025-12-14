@@ -13,6 +13,7 @@ using Models;
 using Observers;
 using Repositories;
 using Strategy;
+using Singleton;
 
 namespace SimulacroFinal
 {
@@ -93,6 +94,8 @@ namespace SimulacroFinal
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            Logger.Instance.Info("Usuario presionó Confirmar");
+
             try
             {
                 if (cmbTransporte.SelectedItem == null)

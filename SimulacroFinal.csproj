@@ -138,6 +138,7 @@
     <Compile Include="Repositories\IRepositorio.cs" />
     <Compile Include="Repositories\RepositorioJson.cs" />
     <Compile Include="Singleton\ConfigManager.cs" />
+    <Compile Include="Singleton\Logger.cs" />
     <Compile Include="Strategy\ITransporteStrategy.cs" />
     <Compile Include="Strategy\TransporteAuto.cs" />
     <Compile Include="Strategy\TransporteAvion.cs" />
