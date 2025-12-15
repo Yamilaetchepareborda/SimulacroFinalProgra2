@@ -8,39 +8,27 @@ namespace Singleton
 {
     public class Logger
     {
-        private static Logger _instance;             // 1) instancia única
-        private readonly List<string> _mensajes;     // 2) historial
+        private static readonly Lazy<Logger> _instance = new Lazy<Logger>(() => new Logger());    // 1) instancia Lazy
+        private readonly List<string> _mensajes;     // 2) lista para historial
 
-        private Logger()                             // 3) constructor privado
+        private Logger()                             // 3) constructor privado, declaramos mensajes
         {
             _mensajes = new List<string>();
         }
 
-        public static Logger Instance                // 4) acceso global
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new Logger();
-                }
-
-                return _instance;
-            }
-        }
-
+        public static Logger Instance => _instance.Value; // 4) acceso global, publico.
+       
         public void Info(string mensaje)             // 5) log con prefijo
         {
             string linea = $"[INFO] {mensaje}";
             _mensajes.Add(linea);
-            Console.WriteLine(linea);
+
         }
 
-        public void Dump()                           // 6) muestra historial
+        public IEnumerable<string> Dump() // 6) Devuelve el historial
         {
-            Console.WriteLine("---- DUMP LOG ----");
-            foreach (var m in _mensajes)
-                Console.WriteLine(m);
+            return _mensajes.ToList();
         }
+
     }
 }

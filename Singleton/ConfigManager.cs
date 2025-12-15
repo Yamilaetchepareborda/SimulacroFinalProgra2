@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Singleton
 {
-    public sealed class ConfigManager
+    public sealed class ConfigManager 
     {
         // Instancia única (Lazy, hilo-seguro)
         private static readonly Lazy<ConfigManager> _instancia = new Lazy<ConfigManager>(() => new ConfigManager());

@@ -14,8 +14,8 @@ namespace Strategy
 
         public decimal CalcularCosto(IEnumerable<Destino> destinos, decimal subtotal)
         {
-            Logger.Instance.Info("Calculando costo de transporte AUTO");
-            var cfg = ConfigManager.Instance;
+            Logger.Instance.Info("Calculando costo de transporte AUTO"); //llamo a logger de singleton
+            var cfg = ConfigManager.Instance; //instancio config de singleton
             // Costo fijo + subtotal, auto tiene costo fijo de 3000, no un porcentaje
             return subtotal + cfg.CostoFijoAuto; 
         }

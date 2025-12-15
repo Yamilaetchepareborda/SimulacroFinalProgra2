@@ -33,17 +33,17 @@ namespace Builder
 
         public void ConDestino(Destino destino)
         {
-            _reserva.Destinos.Add(destino);
-            _reserva.Subtotal += destino.PrecioBase;
+            _reserva.Destinos.Add(destino); //agrego destino a la lista de destinos en reserva.
+            _reserva.Subtotal += destino.PrecioBase; // el subtotal de la reserva va a sumar al precio base del destino.
         }
 
         public void ConTransporte(ITransporteStrategy transporte)
         {
             _transporte = transporte;
-            _reserva.MedioTransporte = transporte.Nombre;
+            _reserva.MedioTransporte = transporte.Nombre; //guaro en MedioTransporte de reserva, el nombre del transporte.
         }
 
-        public Reserva Build()
+        public Reserva Build() // creo la reserva completa.
         {
             // VALIDACIONES
             if (string.IsNullOrWhiteSpace(_reserva.Viajero))
@@ -65,7 +65,7 @@ namespace Builder
             int totalDias = _reserva.Destinos.Sum(d => d.DuracionDias);
             if (totalDias >= 7)
             {
-                var cfg = ConfigManager.Instance;
+                var cfg = ConfigManager.Instance; // llamo a la instancia de config singleton
                 var descuento = _reserva.Total * cfg.DescuentoPorMuchosDias;
                 _reserva.Total -= descuento;
                 _reserva.Notas = $"Se aplicó descuento del {cfg.DescuentoPorMuchosDias:P0} por viaje largo.";

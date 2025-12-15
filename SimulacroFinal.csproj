@@ -129,10 +129,8 @@
     </Compile>
     <Compile Include="Models\Destino.cs" />
     <Compile Include="Models\Reserva.cs" />
-    <Compile Include="Observers\AgenciaObserver.cs" />
-    <Compile Include="Observers\ClienteObserver.cs" />
     <Compile Include="Observers\IReservaObserver.cs" />
-    <Compile Include="Observers\ServiceObserver.cs" />
+    <Compile Include="Observers\ReservaService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepositorio.cs" />

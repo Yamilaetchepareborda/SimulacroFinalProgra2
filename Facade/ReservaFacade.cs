@@ -37,13 +37,13 @@ namespace Facade
                 DuracionDias = dias
             };
             _destinosSeleccionados.Add(destino);
-            Console.WriteLine("Destino agregado correctamente.");
+            Logger.Instance.Info($"Destino agregado: {nombre}");
         }
 
         public void SeleccionarTransporte(ITransporteStrategy transporte)
         {
             _transporteActual = transporte;
-            Console.WriteLine($"Transporte seleccionado: {transporte.Nombre}");
+            Logger.Instance.Info($"Transporte seleccionado: {transporte.Nombre}");
         }
 
         public void ConfirmarReserva(string viajero, DateTime fechaInicio)
@@ -70,7 +70,7 @@ namespace Facade
             _repo.Guardar(reserva);      // persiste
 
             _destinosSeleccionados.Clear();
-            Console.WriteLine("Reserva confirmada y guardada.");
+            Logger.Instance.Info("Reserva confirmada y guardada");
         }
 
         public IEnumerable<Reserva> ListarReservas()
